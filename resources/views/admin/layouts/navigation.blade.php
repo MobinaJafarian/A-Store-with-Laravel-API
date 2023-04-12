@@ -25,8 +25,8 @@
             <li>
                 <a href="#">کاربران</a>
                 <ul>
-                    <li><a href="#">ایجاد کاربر</a></li>
-                    <li><a href="#">لیست کاربران</a></li>
+                    <li><a href="{{ route('user.create') }}">ایجاد کاربر</a></li>
+                    <li><a href="{{ route('user.index') }}">لیست کاربران</a></li>
                 </ul>
             </li>
         </ul>
