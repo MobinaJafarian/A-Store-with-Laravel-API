@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -22,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.user.create');
     }
 
     /**
@@ -30,7 +31,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::query()->create([
+            'name' => $request->input('name'),
+            'email'=>$request->input('email'),
+            'mobile'=>$request->input('mobile'),
+            'password'=>Hash::make($request->input('password')),
+            // 'photo'=>$image,
+
+        ]);
+        return  redirect()->route('user.index')->with('message','کاربر جدید با موفقیت ثبت شد');
     }
 
     /**
