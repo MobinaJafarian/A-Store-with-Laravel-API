@@ -31,15 +31,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $image = User::saveImage($request->file);
         User::query()->create([
-            'name' => $request->input('name'),
+            'name'=>$request->input('name'),
             'email'=>$request->input('email'),
             'mobile'=>$request->input('mobile'),
             'password'=>Hash::make($request->input('password')),
-            // 'photo'=>$image,
-
+            'photo'=>$image,
         ]);
-        return  redirect()->route('user.index')->with('message','کاربر جدید با موفقیت ثبت شد');
+
+        return  redirect()->route('users.index')->with('message','کاربر جدید با موفقیت ثبت شد');
     }
 
     /**

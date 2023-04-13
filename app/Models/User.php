@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -47,4 +49,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function saveImage($file){
+        if($file){
+            $name = time().'.'.$file->extension();
+            $smallImage = Image::make($file->getRealPath());
+            $bigImage = Image::make($file->getRealPath());
+            $smallImage->resize(256,256,function ($constraint){
+                $constraint->aspectRatio();
+            });
+            Storage::disk('local')->put('admin/users/small/'.$name,(string) $smallImage->encode('png',90));
+            Storage::disk('local')->put('admin/users/big/'.$name,(string) $bigImage->encode('png',90));
+            return $name;
+        }else{
+            return '';
+        }
+      }
 }
