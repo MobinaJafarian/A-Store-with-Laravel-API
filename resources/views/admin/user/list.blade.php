@@ -31,7 +31,7 @@
                         <td class="text-center align-middle">{{ $key += 1}}</td>
                         <td class="text-center align-middle">
                             <figure class="avatar avatar">
-                                <img src="" class="rounded-circle" alt="image">
+                                <img src="{{ url('images/admin/users/big/'.$user->photo) }}" class="rounded-circle" alt="image">
                             </figure>
                         </td>
                         <td class="text-center align-middle">{{ $user->name }}</td>
