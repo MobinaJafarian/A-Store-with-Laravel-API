@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -55,15 +56,26 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::query()->find($id);
+        return view('admin.user.edit',compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EditUserRequest $request, $id)
     {
-        //
+        $user = User::query()->find($id);
+        $image = User::saveImage($request->file);
+        $user->update([
+            'name'=>$request->input('name'),
+            'email'=>$request->input('email'),
+            'mobile'=>$request->input('mobile'),
+            'password'=>($request->input('password') ? Hash::make($request->input('password')) : $user->password ) ,
+            'photo'=>$image,
+        ]);
+
+        return  redirect()->route('users.index')->with('message','کاربر جدید با موفقیت ویرایش شد');
     }
 
     /**
