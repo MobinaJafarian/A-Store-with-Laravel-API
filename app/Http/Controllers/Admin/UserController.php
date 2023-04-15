@@ -16,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {   
-        return view('admin.user.list');
+        $title = "لیست کاربران";
+        return view('admin.user.list', compact('title'));
     }
 
     /**
@@ -24,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $title = "ایجاد کاربر";
+        return view('admin.user.create', compact('title'));
     }
 
     /**
@@ -57,8 +59,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
+        $title = "ویرایش کاربر";
         $user = User::query()->find($id);
-        return view('admin.user.edit',compact('user'));
+        return view('admin.user.edit',compact('user','title'));
     }
 
     /**

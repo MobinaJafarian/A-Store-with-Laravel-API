@@ -18,7 +18,7 @@
 	@include('admin.layouts.navigation')
 
 	<!-- begin::header -->
-    @include('admin.layouts.header')
+    @include('admin.layouts.header', [$title=$title ?? ""])
 
 	<!-- begin::main content -->
 	@livewireStyles
