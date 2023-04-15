@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="container">
                     <h6 class="card-title">ایجاد کاربر</h6>
-                    <form method="POST" action="{{route('user.store')}}" enctype="multipart/form-data" >
+                    <form method="POST" action="{{route('users.store')}}" enctype="multipart/form-data" >
                         @csrf
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">نام و نام خانوادگی</label>
