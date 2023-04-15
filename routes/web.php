@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [PanelController::class , 'index'])->name('panel');
-    Route::resource('/admin/user', UserController::class);
+    Route::resource('/admin/users', UserController::class);
 });
 
 
