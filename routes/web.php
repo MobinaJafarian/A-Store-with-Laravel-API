@@ -32,10 +32,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/admin', [PanelController::class , 'index'])->name('panel');
-    Route::resource('/admin/users', UserController::class);
-    Route::resource('/admin/roles', RoleController::class);
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [PanelController::class , 'index'])->name('panel');
+    Route::resource('/users', UserController::class);
+    Route::resource('/roles', RoleController::class);
+    Route::get('create_user_roles/{id}', [UserController::class , 'createUserRoles'])->name('create.user.roles');
+    Route::post('store_user_roles/{id}', [UserController::class , 'storeUserRoles'])->name('store.user.roles');
 });
 
 
