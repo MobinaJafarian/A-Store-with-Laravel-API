@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
     <main class="main-content">
-        {{-- @include('admin.layouts.errors') --}}
+        @include('admin.layouts.errors')
         <div class="card">
             <div class="card-body">
                 <div class="container">
