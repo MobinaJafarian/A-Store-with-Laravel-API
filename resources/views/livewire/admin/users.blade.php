@@ -47,7 +47,7 @@
 
                 </td>
                 <td class="text-center align-middle">
-                    <a class="btn btn-outline-info" href="#">
+                    <a class="btn btn-outline-info" href="{{ route('users.edit', $user->id)}}">
                         ویرایش
                     </a>
                 </td>
