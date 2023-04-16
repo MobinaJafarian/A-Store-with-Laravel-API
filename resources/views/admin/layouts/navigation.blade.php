@@ -31,10 +31,17 @@
             </li>
             
             <li>
-                <a href="#">نقش</a>
+                <a href="#">نقش ها </a>
                 <ul>
                     <li><a href="{{ route('roles.create') }}">ایجاد نقش</a></li>
                     <li><a href="{{ route('roles.index') }}">لیست نقش ها</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#">لاگ ها</a>
+                <ul>
+                    <li><a href="{{ route('logs') }}">لیست لاگ ها</a></li>
                 </ul>
             </li>
 
