@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "arcanedev/log-viewer": "^10.0",
         "guzzlehttp/guzzle": "^7.2",
         "hekmatinasser/verta": "^8.3",
         "intervention/image": "^2.7",
