@@ -32,7 +32,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $image = Category::saveImage($request->ifile);
+        $image = Category::saveImage($request->file);
         Category::query()->create([
             'title' => $request->input('title'),
             'parent_id' => $request->input('parent_id'),
@@ -54,7 +54,9 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::query()->find($id);
+        $categories = Category::query()->pluck('title','id');
+        return view('admin.category.edit', compact('categories','category'));
     }
 
     /**
@@ -62,7 +64,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $image = Category::saveImage($request->file);
+        $category = Category::query()->find($id);
+        $categories = Category::query()->pluck('title','id');
+        $category->update([
+            'title' => $request->input('title'),
+            'parent_id' => $request->input('parent_id'),
+            'image' => $image
+        ]);
+        return redirect()->route('category.index')->with('message', 'دسته بندی با موفقیت ویرایش شد');
     }
 
     /**
@@ -70,6 +80,6 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
