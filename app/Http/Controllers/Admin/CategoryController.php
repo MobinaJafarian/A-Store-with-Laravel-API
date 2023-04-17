@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'لیست دسته بندی';
+        return view('admin.category.list');
     }
 
     /**
@@ -21,7 +23,8 @@ class CategoryController extends Controller
     public function create()
     {
         $title = 'ایجاد دسته بندی';
-        return view('admin.category.create', compact('title'));
+        $categories = Category::query()->pluck('title' , 'id');
+        return view('admin.category.create', compact('title', 'categories'));
     }
 
     /**
@@ -29,7 +32,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = Category::saveImage($request->ifile);
+        Category::query()->create([
+            'title' => $request->input('title'),
+            'parent_id' => $request->input('parent_id'),
+            'image' => $image
+        ]);
+        return redirect()->route('category.index')->with('message', 'دسته بندی با موفقیت ایجاد شد');
     }
 
     /**
