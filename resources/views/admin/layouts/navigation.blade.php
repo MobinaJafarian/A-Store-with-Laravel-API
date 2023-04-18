@@ -70,8 +70,8 @@
             <li>
                 <a href="#"> اسلایدر</a>
                 <ul>
-                    {{-- <li><a href="{{route('sliders.create')}}">ایجاد اسلایدر</a></li> --}}
-                    {{-- <li><a href="{{route('sliders.index')}}">لیست اسلایدر</a></li> --}}
+                    <li><a href="{{route('sliders.create')}}">ایجاد اسلایدر</a></li>
+                    <li><a href="{{route('sliders.index')}}">لیست اسلایدر</a></li>
                 </ul>
             </li>
             <li>
