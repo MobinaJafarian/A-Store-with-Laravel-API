@@ -14,7 +14,7 @@ class Slider extends Model
     protected $fillable = [
         'title',
         'url',
-        'string'
+        'image'
     ];
 
     public static function saveImage($file){
