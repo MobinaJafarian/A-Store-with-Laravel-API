@@ -84,8 +84,8 @@
             <li>
                 <a href="#"> رنگ ها</a>
                 <ul>
-                    {{-- <li><a href="{{route('colors.create')}}">ایجاد رنگ</a></li>
-                    <li><a href="{{route('colors.index')}}">لیست رنگ ها</a></li> --}}
+                    <li><a href="{{route('colors.create')}}">ایجاد رنگ</a></li>
+                    <li><a href="{{route('colors.index')}}">لیست رنگ ها</a></li>
                 </ul>
             </li>
             <li>
