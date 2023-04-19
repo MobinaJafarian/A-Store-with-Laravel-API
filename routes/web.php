@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\LogViewerController;
 use App\Http\Controllers\Admin\PanelController;
@@ -50,6 +51,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     //Product Route
     Route::resource('category', CategoryController::class);
     Route::resource('sliders', SliderController::class);
+    Route::resource('brands', BrandController::class);
 
 });
 
