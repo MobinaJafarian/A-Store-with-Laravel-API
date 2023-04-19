@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{{asset('panel/assets/css/app.css')}}" type="text/css">
 	<link rel="stylesheet" href="{{asset('panel/vendors/select2/css/select2.min.css')}}">
 	<link rel="stylesheet" href="{{url('panel/plugins/sweet_alert/sweetalert2.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('panel/plugins/colorpicker/css/bootstrap-colorpicker.min.css')}}" type="text/css">
 </head>
 <body class="small-navigation">
 	
@@ -30,6 +31,8 @@
 	<script src="{{asset('panel/vendors/bundle.js')}}"></script>
 	<script src="{{url('panel/vendors/select2/js/select2.min.js')}}"></script>
 	<script src="{{url('panel/plugins/sweet_alert/sweetalert2.all.min.js')}}"></script>
+	<script src="{{url('panel/plugins/colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+	<script src="{{url('panel/plugins/colorpicker/js/colorpicker.js')}}"></script>
 	<script src="{{asset('panel/vendors/slick/slick.min.js')}}"></script>
 	<script src="{{asset('panel/vendors/vmap/jquery.vmap.min.js')}}"></script>
 	<script src="{{asset('panel/assets/js/app.js')}}"></script>
