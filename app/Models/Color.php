@@ -13,4 +13,9 @@ class Color extends Model
         'name',
         'code'
     ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'color_product');
+    }
 }
