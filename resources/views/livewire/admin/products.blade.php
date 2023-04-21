@@ -33,14 +33,14 @@
                 <td class="text-center align-middle">{{$product->price}}</td>
                 <td class="text-center align-middle">{{$product->count}}</td>
                 <td class="text-center align-middle">
-                    <a class="btn btn-outline-info" href="{{route('create.product.galley',$product->id)}}">
+                    {{-- <a class="btn btn-outline-info" href="{{route('create.product.galley',$product->id)}}"> --}}
                         گالری
-                    </a>
+                    {{-- </a> --}}
                 </td>
                 <td class="text-center align-middle">
-                    <a class="btn btn-outline-info" href="{{route('create.product.properties',$product->id)}}">
+                    {{-- <a class="btn btn-outline-info" href="{{route('create.product.properties',$product->id)}}">
                         ویژگی ها
-                    </a>
+                    </a> --}}
                 </td>
                 <td class="text-center align-middle">
                     <a class="btn btn-outline-info" href="{{route('products.edit',$product->id)}}">
