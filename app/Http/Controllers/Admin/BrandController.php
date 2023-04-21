@@ -32,7 +32,7 @@ class BrandController extends Controller
      */
     public function store(BrandRequest $request)
     {
-        $image = Brand::saveImage($request->file);
+        $image = Brand::saveImage($request->image);
         Brand::query()->create([
             'title' => $request->input('title'),
             'image' => $image
@@ -63,7 +63,7 @@ class BrandController extends Controller
      */
     public function update(BrandRequest $request, string $id)
     {
-        $image = Brand::saveImage($request->file);
+        $image = Brand::saveImage($request->image);
         Brand::query()->find($id)->update([
             'title' => $request->input('title'),
             'image' => $image
