@@ -30,7 +30,7 @@ class ProductController extends Controller
         $title = "اضافه کردن محصول";
         $categories = Category::query()->pluck('title', 'id');
         $brands = Brand::query()->pluck('title', 'id');
-        $colors = Color::query()->pluck('title', 'id');
+        $colors = Color::query()->pluck('name', 'id');
         return view('admin.product.create', compact('title','categories','brands','colors'));
     }
 
@@ -79,7 +79,7 @@ class ProductController extends Controller
         $product = Product::query()->find($id);
         $categories = Category::query()->pluck('title', 'id');
         $brands = Brand::query()->pluck('title', 'id');
-        $colors = Color::query()->pluck('title', 'id');
+        $colors = Color::query()->pluck('name', 'id');
         return view('admin.product.edit', compact('title','product','categories','brands','colors'));
     }
 
