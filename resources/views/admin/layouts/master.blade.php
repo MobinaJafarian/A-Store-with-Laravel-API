@@ -35,6 +35,7 @@
 	<script src="{{url('panel/plugins/colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
 	<script src="{{url('panel/plugins/colorpicker/js/colorpicker.js')}}"></script>
 	<script src="{{url('panel/plugins/datepicker/kamadatepicker.min.js')}}"></script>
+	<script src="{{url('panel/plugins/ckeditor/ckeditor.js')}}"></script>
 	<script src="{{asset('panel/vendors/slick/slick.min.js')}}"></script>
 	<script src="{{asset('panel/vendors/vmap/jquery.vmap.min.js')}}"></script>
 	<script src="{{asset('panel/assets/js/app.js')}}"></script>
