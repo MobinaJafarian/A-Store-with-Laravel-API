@@ -98,8 +98,8 @@
             <li>
                 <a href="#"> گروه ویژگی ها</a>
                 <ul>
-                    {{-- <li><a href="{{route('property_groups.create')}}">ایجاد گروه ویژگی ها</a></li> --}}
-                    {{-- <li><a href="{{route('property_groups.index')}}">لیست گروه ویژگی ها</a></li> --}}
+                    <li><a href="{{route('property_groups.create')}}">ایجاد گروه ویژگی ها</a></li>
+                    <li><a href="{{route('property_groups.index')}}">لیست گروه ویژگی ها</a></li>
                 </ul>
             </li>
             <li>
