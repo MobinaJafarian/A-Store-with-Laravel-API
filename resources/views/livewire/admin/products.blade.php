@@ -38,9 +38,9 @@
                     </a>
                 </td>
                 <td class="text-center align-middle">
-                    {{-- <a class="btn btn-outline-info" href="{{route('create.product.properties',$product->id)}}">
+                    <a class="btn btn-outline-info" href="{{route('create.product.properties',$product->id)}}">
                         ویژگی ها
-                    </a> --}}
+                    </a>
                 </td>
                 <td class="text-center align-middle">
                     <a class="btn btn-outline-info" href="{{route('products.edit',$product->id)}}">
