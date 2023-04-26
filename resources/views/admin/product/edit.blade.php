@@ -7,8 +7,8 @@
                 <div class="container">
                     <h6 class="card-title">ویرایش محصول</h6>
                     <div class="row d-flex justify-content-center">
-                        <figure class="col-offset-3 col-6" >
-                            <img src="{{url('images/admin/products/big/'.$product->image)}}" class="rounded-circle" alt="image">
+                        <figure class="col-offset-3 col-6">
+                            <img src="{{url('images/admin/products/small/'.$product->image)}}" alt="image">
                         </figure>
                     </div>
                     <form method="POST" action="{{route('products.update',$product->id)}}" enctype="multipart/form-data" >
