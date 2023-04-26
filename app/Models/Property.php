@@ -15,4 +15,9 @@ class Property extends Model
     {
         return $this->belongsTo(PropertyGroup::class, 'property_group_id', 'id');
     }
+
+    public function products()
+    {
+        return $this->belongsTo(Product::class, 'product_property');
+    }
 }
