@@ -65,6 +65,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('create_product_gallery/{id}',[GalleryController::class, 'addGallery'])->name('create.product.gallery');
     Route::post('store_product_gallery/{id}',[GalleryController::class, 'storeGallery'])->name('store.product.gallery');
+    
+    Route::get('create_product_properties/{id}',[ProductController::class, 'addProperties'])->name('create.product.properties');
+    Route::post('store_product_properties/{id}',[ProductController::class, 'storeProperties'])->name('store.product.properties');
 });
 
 
