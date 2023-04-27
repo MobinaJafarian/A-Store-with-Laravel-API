@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     
     //Main Route
     Route::get('/', [PanelController::class , 'index'])->name('panel');
