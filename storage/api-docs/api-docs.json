@@ -5,6 +5,39 @@
         "version": "1.0"
     },
     "paths": {
-        "/api": {}
+        "/api": {},
+        "/api/v1/send_sms": {
+            "post": {
+                "tags": [
+                    "Auth Api"
+                ],
+                "description": "use for send verification sms to user",
+                "operationId": "d66c863c38e88d858c0ed44f85519d62",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "Enter mobile number",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
     }
 }
