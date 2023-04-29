@@ -25,4 +25,25 @@ class SmsCode extends Model
         return false;
 
     }
+
+    public static function createSmsCode($mobile, $code)
+    {
+        self::query()->create([
+            'mobile'=>$mobile,
+            'code'=>$code
+        ]);
+    }
+
+    public static function checkSend($mobile, $code)
+    {
+        $check = self::query()->where([
+            'mobile' => $mobile,
+            'code' => $code
+        ])->first();
+
+        if($check){
+            return true;
+        }
+        return false;
+    }
 }
