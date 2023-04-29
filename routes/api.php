@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('/v1')->namespace('Api\V1')->group(function(){
     Route::post('send_sms', [AuthController::class, 'sendSms']);
-
+    Route::post('verify_sms_code',[AuthController::class, 'verifySms']);
 });
