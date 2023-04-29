@@ -38,6 +38,43 @@
                     }
                 }
             }
+        },
+        "/api/v1/verify_sms_code": {
+            "post": {
+                "tags": [
+                    "Auth Api"
+                ],
+                "description": "use to check sms code that recieved by user",
+                "operationId": "e5905d20c2f34f98c4a5c597eefbd455",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "mobile": {
+                                        "description": "user mobile number",
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "description": "recieved user sms code",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
         }
     }
 }
