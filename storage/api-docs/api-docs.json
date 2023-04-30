@@ -12,7 +12,7 @@
                     "Auth Api"
                 ],
                 "description": "use for send verification sms to user",
-                "operationId": "d66c863c38e88d858c0ed44f85519d62",
+                "operationId": "d1247469abd2f7e94eb57030e5a6c480",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -45,7 +45,7 @@
                     "Auth Api"
                 ],
                 "description": "use to check sms code that recieved by user",
-                "operationId": "e5905d20c2f34f98c4a5c597eefbd455",
+                "operationId": "14dd66daa7dd22941ebef438ae54b4e4",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -74,6 +74,84 @@
                         }
                     }
                 }
+            }
+        },
+        "/api/v1/register": {
+            "post": {
+                "tags": [
+                    "User Api"
+                ],
+                "description": "use to signin user with recieved code",
+                "operationId": "5c468f9e0f6bb6a0779c4a3f7c0f7100",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "image": {
+                                        "description": "user image",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    },
+                                    "phone": {
+                                        "description": "user phone number",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "description": "user name",
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "description": "user address",
+                                        "type": "string"
+                                    },
+                                    "postal_code": {
+                                        "description": "user postal code",
+                                        "type": "string"
+                                    },
+                                    "lat": {
+                                        "description": "user location latitude",
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "lang": {
+                                        "description": "user location longitude",
+                                        "type": "number",
+                                        "format": "double"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data saved",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Bearer",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }
