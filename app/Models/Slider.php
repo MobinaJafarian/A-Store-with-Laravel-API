@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\SliderResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\Facades\Image;
@@ -31,5 +32,11 @@ class Slider extends Model
         }else{
             return '';
         }
+    }
+
+    public static function getSliders()
+    {
+        $sliders = Slider::query()->get();
+        return SliderResource::collection($sliders);
     }
 }
