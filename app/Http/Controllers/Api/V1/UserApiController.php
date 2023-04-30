@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 
 class UserApiController extends Controller
 {
-        /**
+
+    /**
      * @OA\Post(
      ** path="/api/v1/register",
      *  tags={"User Api"},
@@ -72,10 +73,11 @@ class UserApiController extends Controller
      *   )
      *)
      **/
+
     public function register(Request $request)
     {
         $user = auth()->user();
-          // 2|3u1G0aBBLQ8dqcexL58P4o4QYPqYK0SYEeWftlpV
+          // 1|6pamQsc2nsQq2C2tiOdog7s4k4nLShugAwbmCkyj
         if($user){
             User::updateUserInfo($user,$request);
             return Response()->json([
