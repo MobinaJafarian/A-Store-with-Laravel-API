@@ -34,9 +34,9 @@ class ProductResource extends JsonResource
             'category'=>$this->category->title,
             'brand_id'=>$this->brand_id,
             'brand'=>$this->brand->title,
-            // 'comments'=>CommentResource::collection($this->comments),
-            // 'colors'=>ColorResource::collection($this->colors),
-            // 'properties'=>PropertyResource::collection($this->properties)
+            'comments'=>CommentResource::collection($this->comments),
+            'colors'=>ColorResource::collection($this->colors),
+            'properties'=>PropertyResource::collection($this->properties)
         ];
     }
 }
