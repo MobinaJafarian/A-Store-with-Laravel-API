@@ -8,21 +8,21 @@ use App\Models\Product;
 class ProductRepository
 {
 
-    public function get6AmazingProducts()
+    public static function get6AmazingProducts()
     {
         $products = Product::query()->where('is_special', true)
             ->orderBy('discount', 'DESC')->take(6)->get();
         return ProductResource::collection($products);
     }
 
-    public function get6MostSellerProducts()
+    public static function get6MostSellerProducts()
     {
         $products = Product::query()
             ->orderBy('sold', 'DESC')->take(6)->get();
         return ProductResource::collection($products);
     }
 
-    public function get6NewestProducts()
+    public static function get6NewestProducts()
     {
         $products = Product::query()->latest()->take(6)->get();
         return ProductResource::collection($products);
