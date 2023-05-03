@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\ProductRepository;
 use App\Http\services\Keys;
 use App\Models\Category;
 use App\Models\Slider;
