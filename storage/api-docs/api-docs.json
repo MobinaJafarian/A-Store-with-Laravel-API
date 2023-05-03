@@ -76,6 +76,23 @@
                 }
             }
         },
+        "/api/v1/home": {
+            "get": {
+                "tags": [
+                    "Home Page"
+                ],
+                "description": "get home page data",
+                "operationId": "f909a31373204df98173c3befdb3ec18",
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/register": {
             "post": {
                 "tags": [
