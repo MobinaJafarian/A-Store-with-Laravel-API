@@ -23,13 +23,57 @@ class ProductApiController extends Controller
         ], 200);
     } 
 
-    public function most_visited_products(){} 
+    public function most_visited_products()
+    {
+        return response()->json([
+            'result' => true,
+            'message' => 'application home page',
+            'data' => [
+                Keys::categories => Category::getAllCategories(),
+                Keys::most_visited_products => ProductRepository::getMostVisitedProducts()->response()->getData(true),
+            ],
 
-    public function newest_products(){} 
+        ], 200);
+    } 
 
-    public function cheapets_products(){} 
+    public function newest_products()
+    {
+        return response()->json([
+            'result' => true,
+            'message' => 'application home page',
+            'data' => [
+                Keys::categories => Category::getAllCategories(),
+                Keys::newest_products => ProductRepository::getNewestProducts()->response()->getData(true),
+            ],
 
-    public function most_expensive_products(){} 
+        ], 200);
+    } 
+
+    public function cheapets_products()
+    {
+        return response()->json([
+            'result' => true,
+            'message' => 'application home page',
+            'data' => [
+                Keys::categories => Category::getAllCategories(),
+                Keys::cheapest_products => ProductRepository::getCheapetsProducts()->response()->getData(true),
+            ],
+
+        ], 200);
+    } 
+
+    public function most_expensive_products()
+    {
+        return response()->json([
+            'result' => true,
+            'message' => 'application home page',
+            'data' => [
+                Keys::categories => Category::getAllCategories(),
+                Keys::most_expensive_products => ProductRepository::getMostExpensivesProducts()->response()->getData(true),
+            ],
+
+        ], 200);
+    } 
 
     
 }
