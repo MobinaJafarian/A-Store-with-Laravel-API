@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AuthApiController;
 use App\Http\Controllers\Api\V1\HomeApiController;
+use App\Http\Controllers\Api\V1\ProductApiController;
 use App\Http\Controllers\Api\V1\UserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,12 @@ Route::prefix('/v1')->namespace('Api\V1')->group(function(){
     Route::post('verify_sms_code',[AuthApiController::class, 'verifySms']);
     
     Route::get('/home',[HomeApiController::class, 'home']);
+
+    Route::get('most_sold_products', [ProductApiController::class, 'most_sold_products']);
+    Route::get('most_visited_products', [ProductApiController::class, 'most_visited_products']);
+    Route::get('newest_products', [ProductApiController::class, 'newest_products']);
+    Route::get('cheapets_products', [ProductApiController::class, 'cheapets_products']);
+    Route::get('most_expensive_products', [ProductApiController::class, 'most_expensive_products']);
 });
 
 Route::prefix('/v1')->namespace('Api\V1')->middleware('auth:sanctum')->group(function(){
