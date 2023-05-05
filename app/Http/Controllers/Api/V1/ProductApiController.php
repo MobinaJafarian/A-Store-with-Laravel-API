@@ -7,6 +7,7 @@ use App\Http\Repositories\ProductRepository;
 use App\Http\Resources\ProductResource;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
 use App\Providers\KeysServiceProvider as keys;
 use Illuminate\Http\Request;
@@ -259,4 +260,63 @@ class ProductApiController extends Controller
         ], 200);
     }
     
+        /**
+     * @OA\Post(
+     ** path="/api/v1/save_product_comment",
+     *  tags={"Product Details"},
+     *   security={{"sanctum":{}}},
+     *  description="save user comment for product",
+     * @OA\RequestBody(
+     *    required=true,
+     *         @OA\MediaType(
+     *           mediaType="multipart/form-data",
+     *           @OA\Schema(
+     *           @OA\Property(
+     *                  property="product_id",
+     *                  description="product id",
+     *                  type="integer",
+     *               ),
+     *     *           @OA\Property(
+     *                  property="parent_id",
+     *                  description="product id",
+     *                  type="integer",
+     *               ),
+     *          @OA\Property(
+     *                  property="body",
+     *                  description="user comment text",
+     *                  type="string",
+     *               ),
+     *           ),
+     *       )
+     * ),
+     *   @OA\Response(
+     *      response=200,
+     *      description="Data saved",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   )
+     *)
+     **/
+    public function saveComment(Request $request)
+    {
+        $user = auth()->user();
+        Comment::query()->create([
+            'body'=>$request->input('body'),
+            'parent_id'=>$request->input('parent_id',null),
+            'user_id'=>$user->id,
+            'product_id'=>$request->input('product_id'),
+        ]);
+
+        $product = Product::query()->find($request->input('product_id'));
+
+        return response()->json([
+            'result'=>true,
+            'message'=>'application products page',
+            'data'=>[
+                new ProductResource($product)
+            ]
+
+        ],200);
+    }
 }
