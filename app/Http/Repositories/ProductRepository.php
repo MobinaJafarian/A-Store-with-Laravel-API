@@ -21,14 +21,14 @@ class ProductRepository
             ->orderBy('sold', 'DESC')->take(6);
         return ProductResource::collection($products);
     }
-    
+
     public static function getMostSellerProducts()
     {
         $products = Product::query()
             ->orderBy('sold', 'DESC')->paginate(12);
         return ProductResource::collection($products);
     }
-    
+
     public static function getMostVisitedProducts()
     {
         $products = Product::query()
@@ -41,20 +41,20 @@ class ProductRepository
         $products = Product::query()->latest()->paginate(12);
         return ProductResource::collection($products);
     }
-    
+
     public static function get6NewestProducts()
     {
         $products = Product::query()->latest()->take(6)->get();
         return ProductResource::collection($products);
     }
-    
+
     public static function getCheapetsProducts()
     {
         $products = Product::query()
             ->orderBy('price', 'ASC')->paginate(12);
         return ProductResource::collection($products);
     }
-    
+
     public static function getMostExpensivesProducts()
     {
         $products = Product::query()
@@ -68,10 +68,19 @@ class ProductRepository
         return ProductResource::collection($products);
 
     }
-    
+
     public static function getProductsByBrand($id)
     {
         $products = Product::query()->where('brand_id', $id)->paginate(12);
+        return ProductResource::collection($products);
+
+    }
+
+    public static function searchedProduct($search)
+    {
+        $products = Product::query()->where('title', 'like', '%' . $search . '%')->
+            orWhere('title_en', 'like', '%' . $search . '%')->
+            orWhere('description', 'like', '%' . $search . '%')->paginate(12);
         return ProductResource::collection($products);
 
     }
