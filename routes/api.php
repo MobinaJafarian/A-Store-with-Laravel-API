@@ -42,4 +42,7 @@ Route::prefix('/v1')->namespace('Api\V1')->group(function(){
 
 Route::prefix('/v1')->namespace('Api\V1')->middleware('auth:sanctum')->group(function(){
     Route::post('register', [UserApiController::class, 'register']);
+
+    Route::post('save_product_comment', [ProductApiController::class, 'saveComment']);
+
 });
