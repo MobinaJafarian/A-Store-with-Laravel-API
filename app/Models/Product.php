@@ -63,4 +63,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Property::class, 'product_property');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
