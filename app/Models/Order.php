@@ -17,4 +17,9 @@ class Order extends Model
         'address_id',
         'user_id',
     ];
+
+    public function orderDetail()
+    {
+        return $this->hasMany(orderDetail::class);
+    }
 }
