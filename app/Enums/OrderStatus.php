@@ -9,5 +9,7 @@ enum OrderStatus:string{
     case Rejected = 'rejected';
 
     case Processing = 'processing';
+    
+    case Send = 'send';
 
 }
