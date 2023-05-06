@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AuthApiController;
 use App\Http\Controllers\Api\V1\HomeApiController;
+use App\Http\Controllers\Api\V1\PaymentApiController;
 use App\Http\Controllers\Api\V1\ProductApiController;
 use App\Http\Controllers\Api\V1\UserApiController;
 use Illuminate\Http\Request;
@@ -46,5 +47,6 @@ Route::prefix('/v1')->namespace('Api\V1')->middleware('auth:sanctum')->group(fun
     Route::post('register', [UserApiController::class, 'register']);
 
     Route::post('save_product_comment', [ProductApiController::class, 'saveComment']);
+    Route::post('payment', [PaymentApiController::class, 'payment'])->name('payment');
 
 });
