@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Resources\UserResource;
-use App\Http\services\Keys;
+use App\Providers\KeysServiceProvider as keys;
 use Illuminate\Http\Request;
 
 class UserApiController extends Controller
