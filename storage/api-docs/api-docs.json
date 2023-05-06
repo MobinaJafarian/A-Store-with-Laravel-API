@@ -232,6 +232,113 @@
                 }
             }
         },
+        "/api/v1/product_details/{id}": {
+            "get": {
+                "tags": [
+                    "Product Details"
+                ],
+                "description": "get product details data by product id",
+                "operationId": "d544ace6cd752bb301d3d548b700a6a1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/save_product_comment": {
+            "post": {
+                "tags": [
+                    "Product Details"
+                ],
+                "description": "save user comment for product",
+                "operationId": "d185eb4577ccc45bd6f6f2b7c690b1b7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "product_id": {
+                                        "description": "product id",
+                                        "type": "integer"
+                                    },
+                                    "parent_id": {
+                                        "description": "product id",
+                                        "type": "integer"
+                                    },
+                                    "body": {
+                                        "description": "user comment text",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Data saved",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/search_product": {
+            "post": {
+                "tags": [
+                    "Products Page"
+                ],
+                "description": "search product",
+                "operationId": "be382728c02fd77f9523cd6684bd5c7e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "search": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/register": {
             "post": {
                 "tags": [
