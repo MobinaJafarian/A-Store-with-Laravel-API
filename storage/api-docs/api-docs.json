@@ -93,6 +93,71 @@
                 }
             }
         },
+        "/api/v1/payment": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "description": "send products id in basket to payment",
+                "operationId": "8434e8cd75847412ac8573a0811cb41c",
+                "requestBody": {
+                    "description": "Data packet for Test",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "address_id": {
+                                        "type": "integer",
+                                        "example": "4"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "type": "integer",
+                                                    "example": "1"
+                                                },
+                                                "count": {
+                                                    "type": "integer",
+                                                    "example": "2"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "example": [
+                                            {
+                                                "product_id": 2,
+                                                "count": 2
+                                            },
+                                            {
+                                                "product_id": 3,
+                                                "count": 2
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Its Ok",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
         "/api/v1/most_sold_products": {
             "get": {
                 "tags": [
