@@ -98,6 +98,20 @@ class UserApiController extends Controller
         }
     }
 
+    /**
+     * @OA\Post(
+     * path="/api/v1/profile",
+     *   tags={"User info"},
+     *   security={{"sanctum":{}}},
+     *   @OA\Response(
+     *      response=200,
+     *      description="It's Ok",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   )
+     *)
+     **/
     public function profile(Request $request)
     {
         $user = auth()->user();
@@ -112,5 +126,15 @@ class UserApiController extends Controller
             ],
         ], 200);
 
+    }
+
+    public function receivedOrders(Request $request)
+    {
+        $user = auth()->user();
+        return Response()->json([
+            'result' => true,
+            'message' => "user received orders",
+            'data' => UserRepository::receivedUserOrder($user),
+        ], 200);
     }
 }
