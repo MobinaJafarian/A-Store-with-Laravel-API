@@ -23,7 +23,7 @@ class KeysServiceProvider extends ServiceProvider
     const searched_products = 'products_by_brand';
 
     const user = 'user';
-    const user_processing_count='user_process_count';
-    const user_received_count='user_received_count';
-    const user_rejected_count='user_rejected_count';
+    const user_processing_count = 'user_process_count';
+    const user_received_count = 'user_received_count';
+    const user_rejected_count = 'user_rejected_count';
 }
