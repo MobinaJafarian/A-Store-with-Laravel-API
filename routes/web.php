@@ -70,6 +70,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('store_product_properties/{id}', [ProductController::class, 'storeProperties'])->name('store.product.properties');
 
     Route::get('orders', [OrderController::class, 'orders'])->name('orders.panel');
+    Route::get('order_details/{id}', [OrderController::class, 'orderDetails'])->name('order.details.panel');
 });
 
 require __DIR__ . '/auth.php';
