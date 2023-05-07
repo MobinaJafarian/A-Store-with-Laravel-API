@@ -78,7 +78,6 @@ class UserApiController extends Controller
     public function register(Request $request)
     {
         $user = auth()->user();
-        // 1|6pamQsc2nsQq2C2tiOdog7s4k4nLShugAwbmCkyj
         if ($user) {
             User::updateUserInfo($user, $request);
             return Response()->json([
