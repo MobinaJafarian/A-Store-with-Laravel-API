@@ -15,6 +15,12 @@
                     <i class="icon ti-folder"></i>
                 </a>
             </li>
+            
+            <li data-toggle="tooltip" title="پرداخت ها">
+                <a href="#payments" title=" پرداخت ها">
+                    <i class="icon ti-folder"></i>
+                </a>
+            </li>
 
         </ul>
 
@@ -110,6 +116,15 @@
                 </ul>
             </li>
         </ul>
+        <ul id="payments">
+            <li>
+                <a href="#">فروش</a>
+                <ul>
+                    <li><a href="{{route('orders.panel')}}">لیست فروش</a></li>
+                </ul>
+            </li>
+        </ul>
+
     </div>
 </div>
 Footer
