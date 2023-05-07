@@ -50,5 +50,6 @@ Route::prefix('/v1')->namespace('Api\V1')->middleware('auth:sanctum')->group(fun
 
     Route::post('save_product_comment', [ProductApiController::class, 'saveComment']);
     Route::post('payment', [PaymentApiController::class, 'payment'])->name('payment');
+    Route::post('profile', [UserApiController::class, 'profile'])->name('profile');
 
 });
