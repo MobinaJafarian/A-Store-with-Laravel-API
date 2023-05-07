@@ -32,6 +32,8 @@
                         <span class="badge badge-danger cursor-pointer"> مرجوع شده </span>
                     @elseif($detail->status===\App\Enums\OrderStatus::Processing->value)
                         <span class="badge badge-info cursor-pointer"> در حال پردازش </span>
+                    @elseif($detail->status===\App\Enums\OrderStatus::Send->value)
+                        <span class="badge badge-primary cursor-pointer">فرستاده شده</span>
                     @endif
                 </td>
                 <td class="text-center align-middle">{{\Hekmatinasser\Verta\Verta::instance($detail->created_at)->format('%B %d، %Y')}}</td>

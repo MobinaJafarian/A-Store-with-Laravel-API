@@ -29,6 +29,10 @@ class OrderDetails extends Component
             ]);
         }else if($order_detai->status === OrderStatus::Processing->value){
             $order_detai->update([
+                'status'=>OrderStatus::Send->value
+            ]);
+        }else if($order_detai->status === OrderStatus::Send->value){
+            $order_detai->update([
                 'status'=>OrderStatus::Received->value
             ]);
         }else{
