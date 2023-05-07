@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Http\Repositories\UserRepository;
 use App\Http\Resources\UserResource;
+use App\Models\User;
 use App\Providers\KeysServiceProvider as keys;
 use Illuminate\Http\Request;
 
@@ -77,23 +78,39 @@ class UserApiController extends Controller
     public function register(Request $request)
     {
         $user = auth()->user();
-          // 1|6pamQsc2nsQq2C2tiOdog7s4k4nLShugAwbmCkyj
-        if($user){
-            User::updateUserInfo($user,$request);
+        // 1|6pamQsc2nsQq2C2tiOdog7s4k4nLShugAwbmCkyj
+        if ($user) {
+            User::updateUserInfo($user, $request);
             return Response()->json([
-                'result'=>true,
-                'message'=>"user updated",
-                'data'=>[
-                    Keys::user=> new UserResource($user)
-                ]
-            ],201);
+                'result' => true,
+                'message' => "user updated",
+                'data' => [
+                    Keys::user => new UserResource($user),
+                ],
+            ], 201);
 
-        }else{
+        } else {
             return Response()->json([
-                'result'=>false,
-                'message'=>"user not found",
-                'data'=>[]
-            ],403);
+                'result' => false,
+                'message' => "user not found",
+                'data' => [],
+            ], 403);
         }
+    }
+
+    public function profile(Request $request)
+    {
+        $user = auth()->user();
+        return Response()->json([
+            'result' => true,
+            'message' => "user profile",
+            'data' => [
+                Keys::user => new UserResource($user),
+                Keys::user_processing_count => UserRepository::processingUserOrderCount($user),
+                Keys::user_received_count => UserRepository::receivedUserOrderCount($user),
+                Keys::user_rejected_count => UserRepository::rejectedUserOrderCount($user),
+            ],
+        ], 200);
+
     }
 }
