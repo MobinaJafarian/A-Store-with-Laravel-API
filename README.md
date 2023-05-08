@@ -77,7 +77,7 @@ Connect to the API (using Postman) on port [127.0.0.1:8000]
 | POST | /api/v1/profile | To display user orders  |
 | POST | /api/v1/search_product | To search products |
 | GET |  /api/v1/product_detail/{id} | To dispaly product detail |
-| POST | /api/v1/most_sold_products | To filter most_sold_products |
+| GET | /api/v1/most_sold_products | To filter most_sold_products |
 | POST | /api/v1/payment | To display payment |
 | POST | /api/v1/received_orders | To display received_orders |
 | ... | ... |... |
