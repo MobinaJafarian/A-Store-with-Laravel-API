@@ -90,8 +90,3 @@ Connect to the API (using Postman) on port [127.0.0.1:8000]
 
 ## Contact
 Created by [@MobinaJafarian](https://github.com/MobinaJafarian) - feel free to contact me!
-
-
-
-## License
-This project is available for use under the MIT License.
