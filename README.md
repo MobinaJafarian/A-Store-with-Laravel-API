@@ -44,7 +44,11 @@ also includes comments for product, payment management, user profile and orders 
 
 
 ## Screenshots
-![store api  screenshot](./public/images/screenShots/)
+![store api admin panel screenshot](./public/images/admin/screenshots/Screenshot%20from%202023-05-08%2022-47-21.png)
+
+![store api admin panel screenshot](./public/images/admin/screenshots/Screenshot%20from%202023-05-08%2022-47-54.png)
+
+![store api  screenshot](./public/images/screenshots/Screenshot%20from%202023-05-08%2023-01-22.png)
 
 
 
