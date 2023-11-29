@@ -56,8 +56,13 @@ also includes comments for product, payment management, user profile and orders 
 
 ```
 git clone https://github.com/MobinaJafarian/A-Store-with-Laravel-API.git 
+
 composer install
+
 cp .env.example .env
+
+php artisan key:generate
+
 php artisan migrate
 ```
 Then
@@ -69,6 +74,14 @@ php artisan serve
 npm install
 npm run dev
 ```
+
+```
+Admin login details: 
+
+- Email = admin@admin.com 
+- Password = password
+```
+
 ```
 Connect to the API (using Postman) on port [127.0.0.1:8000]
 ```
