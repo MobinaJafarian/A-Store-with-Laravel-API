@@ -4,6 +4,7 @@ use App\Enums\UserStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 
 return new class extends Migration
 {
@@ -27,6 +28,11 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', [
+            '--class' => AdminSeeder::class,
+            '--force' => true,
+        ]);
     }
 
     /**
